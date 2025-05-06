@@ -26,18 +26,25 @@
         h1 {
             color: #333;
         }
-        .botao {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #076e1a; /* Cor do botão */
-    color: #fff; /* Cor do texto do botão */
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 10px;
+
         .preco {
             font-size: 1.5em;
             color: #1a8917;
             margin-top: 10px;
+        }
+
+        .botao {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #076e1a; /* Cor do botão */
+            color: #fff; /* Cor do texto do botão */
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .botao:hover {
+            background-color: #065f13; /* Cor do botão ao passar o mouse */
         }
 
         .tabela-fipe {
@@ -51,23 +58,26 @@
             color: #c0392b;
             font-size: 1.3em;
         }
+
     </style>
 </head>
 <body>
 
     <h1>Anúncio de Carro</h1>
 
-
-            <h2>Chevrolet Monza 2.0 1996</h2>
-            <p>Veículo em ótimo estado de conservação, terceiro dono,ultima revisão dia 01/04/2022, pneus meia vida na traseira e novos na dianteira.</p>
+    <div class="container">
+        <div class="anuncio">
+            <h2>Chevrolet Monza 2.0 GLS GASOLINA 1996</h2>
+            <p>Veículo em ótimo estado de conservação, terceiro dono, última revisão dia 01/04/2022, pneus meia vida na traseira e novos na dianteira.</p>
+            <p>OPCIONAIS:Ar-condicionado, direção hidráulica, bancos e volantes com regulagens de posições, vidros e travas elétricas, luzes de cortesia e leitura.</p>
             <p class="preco">Preço do Anúncio: R$ 41.900,00</p>
-            <p  href="#" class="botao">COMPRAR</p>
+            <a href="#" class="botao">COMPRAR</a>
         </div>
 
         <div class="fipe">
             <div class="tabela-fipe">
                 <h3>Tabela FIPE</h3>
-                <p>Modelo: Chevrolet Monza 2.0 1996 </p>
+                <p>Modelo: Chevrolet Monza 2.0 1996</p>
                 <p>Referência: Maio/2025</p>
                 <p class="fipe-valor">Valor FIPE: R$ 16.332,00</p>
             </div>
