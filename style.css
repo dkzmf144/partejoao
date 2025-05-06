@@ -12,8 +12,8 @@ body {
     padding: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     max-width: 600px;
-    margin: auto;wq
-    text-align: center;
+    margin: auto; /* Corrigido o erro de digitação */
+    /* Adicionar 'text-align' ou outra propriedade faltante aqui */
 }
 
 h1 {
