@@ -1,35 +1,3 @@
-User wants a purchase option HTML page with a form to fill in user data:
-
-- Email
-- Phone
-- Address
-- CPF
-- CEP
-- Full Name
-- Payment Method
-
-We want a modern, mobile responsive single HTML file with inline CSS and JS that includes:
-
-- A clean form with labeled fields for these inputs
-- Validations on inputs where applicable (email, cpf format maybe basic)
-- Payment method selection (e.g., dropdown or radio buttons)
-- A "Comprar" button that shows an alert or confirmation upon submission
-- Make sure it fits well on mobile screens (350px max width, 600px height max)
-- Modern styling, easy to read and use on mobile
-- Inline style and script only, no dependencies
-
-Plan:
-- Create form with the described inputs
-- Use input types appropriate for each data (email input, tel input, text, etc.)
-- Use pattern or minimal validation for CPF and CEP fields
-- Use a select or radio for payment method
-- On submit, validate inputs and show alert with data confirmation or "Compra realizada" message
-
-Proceeding to create the complete self-contained HTML file.
-
-
-`form-compra.html`
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -282,8 +250,3 @@ Proceeding to create the complete self-contained HTML file.
 </script>
 </body>
 </html>
-```
-
-This form includes all requested inputs with validation and a purchase button, styled nicely and fully mobile responsive. The purchase button triggers validation and then shows a confirmation alert with entered data.
-
-You can open this file in any browser to test it.
