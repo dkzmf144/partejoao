@@ -1,12 +1,289 @@
+User wants a purchase option HTML page with a form to fill in user data:
+
+- Email
+- Phone
+- Address
+- CPF
+- CEP
+- Full Name
+- Payment Method
+
+We want a modern, mobile responsive single HTML file with inline CSS and JS that includes:
+
+- A clean form with labeled fields for these inputs
+- Validations on inputs where applicable (email, cpf format maybe basic)
+- Payment method selection (e.g., dropdown or radio buttons)
+- A "Comprar" button that shows an alert or confirmation upon submission
+- Make sure it fits well on mobile screens (350px max width, 600px height max)
+- Modern styling, easy to read and use on mobile
+- Inline style and script only, no dependencies
+
+Plan:
+- Create form with the described inputs
+- Use input types appropriate for each data (email input, tel input, text, etc.)
+- Use pattern or minimal validation for CPF and CEP fields
+- Use a select or radio for payment method
+- On submit, validate inputs and show alert with data confirmation or "Compra realizada" message
+
+Proceeding to create the complete self-contained HTML file.
+
+
+`form-compra.html`
+```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Formulário de Compra</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; padding: 0;
+    background: #f9fafc;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px 10px;
+    color: #333;
+  }
+  .container {
+    background: white;
+    max-width: 350px;
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+    padding: 25px 20px;
+  }
+  h1 {
+    color: #2c3e50;
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #34495e;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select {
+    padding: 10px 12px;
+    margin-bottom: 16px;
+    border: 1.8px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    width: 100%;
+  }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  select:focus {
+    border-color: #2980b9;
+    outline: none;
+  }
+  .payment-method {
+    margin-bottom: 20px;
+  }
+  .payment-method label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+    color: #34495e;
+  }
+  .payment-options {
+    display: flex;
+    flex-direction: column;
+  }
+  .payment-options label {
+    font-weight: 500;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #2c3e50;
+  }
+  input[type="radio"] {
+    margin-right: 8px;
+    cursor: pointer;
+  }
+  button.submit-btn {
+    background-color: #2980b9;
+    color: white;
+    padding: 14px 0;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0 5px 12px rgba(41, 128, 185, 0.6);
+    transition: background-color 0.3s ease;
+  }
+  button.submit-btn:hover, button.submit-btn:focus {
+    background-color: #1c5980;
+    outline: none;
+  }
+  .error {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: -14px;
+    margin-bottom: 12px;
+  }
+</style>
 </head>
 <body>
-    <p>oiuytrertyuioiuytryjhgfd</p>
-    
+  <div class="container" role="main" aria-label="Formulário de compra">
+    <h1>Informações para Compra</h1>
+    <form id="purchaseForm" novalidate>
+      <label for="fullname">Nome Completo</label>
+      <input type="text" id="fullname" name="fullname" placeholder="Seu nome completo" required minlength="3" />
+      <div class="error" id="errorFullname"></div>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" required />
+      <div class="error" id="errorEmail"></div>
+
+      <label for="phone">Telefone</label>
+      <input type="tel" id="phone" name="phone" placeholder="(00) 00000-0000" required pattern="^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$" />
+      <div class="error" id="errorPhone"></div>
+
+      <label for="cpf">CPF</label>
+      <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$" />
+      <div class="error" id="errorCPF"></div>
+
+      <label for="cep">CEP</label>
+      <input type="text" id="cep" name="cep" placeholder="00000-000" required pattern="^\d{5}-\d{3}$" />
+      <div class="error" id="errorCEP"></div>
+
+      <label for="address">Endereço</label>
+      <input type="text" id="address" name="address" placeholder="Rua, número, bairro, cidade" required minlength="5" />
+      <div class="error" id="errorAddress"></div>
+
+      <div class="payment-method">
+        <label>Forma de Pagamento</label>
+        <div class="payment-options">
+          <label><input type="radio" name="payment" value="Cartão de Crédito" required /> Cartão de Crédito</label>
+          <label><input type="radio" name="payment" value="Boleto Bancário" /> Boleto Bancário</label>
+          <label><input type="radio" name="payment" value="Pix" /> Pix</label>
+          <label><input type="radio" name="payment" value="Débito" /> Débito</label>
+        </div>
+        <div class="error" id="errorPayment"></div>
+      </div>
+
+      <button type="submit" class="submit-btn">Comprar</button>
+    </form>
+  </div>
+
+<script>
+  const form = document.getElementById('purchaseForm');
+
+  // Helper function to show and clear error messages
+  function setError(id, message) {
+    const el = document.getElementById(id);
+    if (message) {
+      el.textContent = message;
+    } else {
+      el.textContent = '';
+    }
+  }
+
+  function validateInput() {
+    let valid = true;
+
+    const fullname = form.fullname.value.trim();
+    if (fullname.length < 3) {
+      setError('errorFullname', 'Por favor, informe seu nome completo.');
+      valid = false;
+    } else {
+      setError('errorFullname', '');
+    }
+
+    const email = form.email.value.trim();
+    if (!form.email.checkValidity()) {
+      setError('errorEmail', 'Por favor, insira um email válido.');
+      valid = false;
+    } else {
+      setError('errorEmail', '');
+    }
+
+    const phone = form.phone.value.trim();
+    const phonePattern = /^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/;
+    if (!phonePattern.test(phone)) {
+      setError('errorPhone', 'Por favor, insira um telefone válido (ex: (00) 00000-0000).');
+      valid = false;
+    } else {
+      setError('errorPhone', '');
+    }
+
+    const cpf = form.cpf.value.trim();
+    const cpfPattern = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+    if (!cpfPattern.test(cpf)) {
+      setError('errorCPF', 'Por favor, insira um CPF válido no formato 000.000.000-00.');
+      valid = false;
+    } else {
+      setError('errorCPF', '');
+    }
+
+    const cep = form.cep.value.trim();
+    const cepPattern = /^\d{5}-\d{3}$/;
+    if (!cepPattern.test(cep)) {
+      setError('errorCEP', 'Por favor, insira um CEP válido no formato 00000-000.');
+      valid = false;
+    } else {
+      setError('errorCEP', '');
+    }
+
+    const address = form.address.value.trim();
+    if (address.length < 5) {
+      setError('errorAddress', 'Por favor, informe seu endereço completo.');
+      valid = false;
+    } else {
+      setError('errorAddress', '');
+    }
+
+    const payment = form.payment.value;
+    if (!payment) {
+      setError('errorPayment', 'Por favor, selecione uma forma de pagamento.');
+      valid = false;
+    } else {
+      setError('errorPayment', '');
+    }
+
+    return valid;
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (validateInput()) {
+      alert(
+        'Compra realizada com sucesso!\n\n' +
+        'Nome: ' + form.fullname.value.trim() + '\n' +
+        'Email: ' + form.email.value.trim() + '\n' +
+        'Telefone: ' + form.phone.value.trim() + '\n' +
+        'CPF: ' + form.cpf.value.trim() + '\n' +
+        'CEP: ' + form.cep.value.trim() + '\n' +
+        'Endereço: ' + form.address.value.trim() + '\n' +
+        'Forma de pagamento: ' + form.payment.value + '\n\n' +
+        'Obrigado pela sua compra!'
+      );
+      form.reset();
+    }
+  });
+</script>
 </body>
 </html>
+```
+
+This form includes all requested inputs with validation and a purchase button, styled nicely and fully mobile responsive. The purchase button triggers validation and then shows a confirmation alert with entered data.
+
+You can open this file in any browser to test it.
