@@ -42,7 +42,7 @@ h1 {
 .butao {
     display: inline-block;
     padding: 10px 20px;
-   background: linear-gradient(to right, #1b028a, #1102df); 
+   background: linear-gradient(to right, #34333a, #535255); 
       color: rgb(255, 255, 255);
       transition: background-image 0.3s ease-in-out;}
 
