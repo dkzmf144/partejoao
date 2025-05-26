@@ -32,8 +32,8 @@ h1 {
 .botao {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #034f14; /* Cor do botão */
-    color: #fff; /* Cor do texto do botão */
+    background-color: #034f14;
+    color: #fff; 
     text-decoration: none;
     border-radius: 5px;
     margin-top: 10px;
@@ -47,7 +47,7 @@ h1 {
       transition: background-image 0.3s ease-in-out;}
 
 .botao:hover {
-    background-color: #08f12b; /* Cor do botão ao passar o mouse */
+    background-color: #08f12b;
 }
 
 .tabela-fipe {
