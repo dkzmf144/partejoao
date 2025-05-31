@@ -1,6 +1,5 @@
 const form = document.getElementById('purchaseForm');
 
-// Helper function to show and clear error messages
 function setError(id, message) {
   const el = document.getElementById(id);
   if (message) {
