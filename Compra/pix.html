@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Código Pix Fictício</title>
+  <link href="../Compra/pix.css" rel="stylesheet" />
+
+</head>
+<body>
+  <header>
+    <div class="logo" aria-label="Logo Código Pix Fictício">PIX📌</div>
+    <nav aria-label="Navegação principal">
+      <a href="#codigo">Código Pix</a>
+      <a href="#info">Informações</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" aria-label="Seção principal">
+      <h1>Pix</h1>
+    </section>
+    <section class="pix-card" id="codigo" aria-labelledby="codigo-title" role="region">
+      <h2 id="codigo-title" class="visually-hidden">Código Pix para copiar</h2>
+      <div class="pix-code" id="pixCode" tabindex="0" aria-label="Código Pix para pagamento">
+000201
+26360014BR.GOV.BCB.PIX0136e7fa2be6-5ed0-4c58-9ca3-6a0a8f987123520400005303986540415.005802BR5925Empresalosstorediversi Ltda6009Sao Paulo61080540900062100508Pagamento Teste63045035
+      </div>
+      <button class="copy-btn" id="copyBtn" aria-describedby="copyDesc" aria-live="polite">Copiar código</button>
+      <div id="copyDesc" class="copied-feedback" role="alert" aria-hidden="true">Copiado!</div>
+    </section>
+  </main>
+    <script src="../Compra/PIX.js"></script>
+</body>
+</html>  
