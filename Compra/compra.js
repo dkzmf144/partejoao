@@ -78,7 +78,7 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
   if (validateInput()) {
     alert(
-      'Compra realizada com sucesso!\n\n' +
+      'Compra realizada com sucesso!🤩\n\n' +
       'Nome: ' + form.fullname.value.trim() + '\n' +
       'Email: ' + form.email.value.trim() + '\n' +
       'Telefone: ' + form.phone.value.trim() + '\n' +
@@ -86,7 +86,7 @@ form.addEventListener('submit', (e) => {
       'CEP: ' + form.cep.value.trim() + '\n' +
       'Endereço: ' + form.address.value.trim() + '\n' +
       'Forma de pagamento: ' + form.payment.value + '\n\n' +
-      'Obrigado pela sua compra!'
+      'parabéns pela sua compra!💸'
     );
     form.reset();
   }
