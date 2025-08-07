@@ -1,3 +1,14 @@
+
+  
+    function showPaymentFields(method) {
+      document.getElementById("creditFields").style.display = method === "credit" ? "block" : "none";
+      document.getElementById("debitFields").style.display = method === "debit" ? "block" : "none";
+      document.getElementById("pixFields").style.display = method === "pix" ? "block" : "none";
+      document.getElementById("boletoFields").style.display = method === "boleto" ? "block" : "none";
+    }
+  
+
+
 const form = document.getElementById('purchaseForm');
 
 function setError(id, message) {

@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>Formulário de Compra</title>
-
-
-  <link rel="stylesheet" href="compra.css" /> 
+  <link rel="stylesheet" href="compra.css" />
 </head>
 <body>
   <div class="container" role="main" aria-label="Formulário de compra">
@@ -39,10 +37,47 @@
       <div class="payment-method">
         <label>Forma de Pagamento</label>
         <div class="payment-options">
-          <label><input type="radio" name="payment" value="Cartão de Crédito" required /> Cartão de Crédito</label>
-          <label><input type="radio" name="payment" value="Boleto Bancário" /> Boleto Bancário</label>
-          <label><input type="radio" name="payment" value="Pix" /> Pix</label>
-          <label><input type="radio" name="payment" value="Débito" /> Débito</label>
+          <label>
+            <input type="radio" name="payment" value="Cartão de Crédito" required onclick="showPaymentFields('credit')" />
+            Cartão de Crédito
+          </label>
+          <div id="creditFields" class="payment-extra" style="display:none; margin-left:20px;">
+            <label for="creditCardNumber">Número do Cartão</label>
+            <input type="text" id="creditCardNumber" name="creditCardNumber" placeholder="0000 0000 0000 0000" pattern="\d{4} \d{4} \d{4} \d{4}" />
+
+            <label for="creditCVV">CVV</label>
+            <input type="text" id="creditCVV" name="creditCVV" placeholder="123" pattern="\d{3}" />
+          </div>
+
+          <label>
+            <input type="radio" name="payment" value="Boleto Bancário" onclick="showPaymentFields('boleto')" />
+            Boleto Bancário
+          </label>
+          <div id="boletoFields" class="payment-extra" style="display:none; margin-left:20px;">
+            <p>Código de barras para pagamento:</p>
+            <img src="https://via.placeholder.com/350x80?text=C%C3%B3digo+de+Barras" alt="Código de Barras Boleto" />
+          </div>
+
+          <label>
+            <input type="radio" name="payment" value="Pix" onclick="showPaymentFields('pix')" />
+            Pix
+          </label>
+          <div id="pixFields" class="payment-extra" style="display:none; margin-left:20px;">
+            <p>Escaneie o QR Code para pagar:</p>
+            <img src="https://via.placeholder.com/150?text=QR+Code+Pix" alt="QR Code Pix" />
+          </div>
+
+          <label>
+            <input type="radio" name="payment" value="Débito" onclick="showPaymentFields('debit')" />
+            Débito
+          </label>
+          <div id="debitFields" class="payment-extra" style="display:none; margin-left:20px;">
+            <label for="debitCardNumber">Número do Cartão</label>
+            <input type="text" id="debitCardNumber" name="debitCardNumber" placeholder="0000 0000 0000 0000" pattern="\d{4} \d{4} \d{4} \d{4}" />
+
+            <label for="debitCVV">CVV</label>
+            <input type="text" id="debitCVV" name="debitCVV" placeholder="123" pattern="\d{3}" />
+          </div>
         </div>
         <div class="error" id="errorPayment"></div>
       </div>
@@ -50,8 +85,6 @@
       <button type="submit" class="submit-btn">Comprar</button>
     </form>
   </div>
-
-
-  <script src="compra.js"></script> 
+  <script src="compra.js"></script>
 </body>
 </html>
